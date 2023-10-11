@@ -1,6 +1,6 @@
 # 0x00. AirBnB clone - The console
 
-<img src="hbnb.png" alt="HBNB logo" style="background-color: white;">
+![AirBnB Clone](hbnb.jpg)
 
 This is the first step towards building my first full web application: the AirBnB clone
 
