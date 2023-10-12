@@ -28,13 +28,16 @@ class FileStorage:
         for key, val in self.__objects.items():
             objects[key] = val.to_dict()
         with open(self.__file_path, "w", encoding="utf-8") as json_file:
-            json.dump(objects, json_file)
+            json.dump(objects, json_file,indent=4)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
         if os.path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as json_file:
-                objects = json.load(json_file)
+                try:
+                    objects = json.load(json_file)
+                except json.JSONDecodeError:
+                    objects = {}
             for key, val in objects.items():
                 # remember dict["__class__"] = __class__.__name__
                 # so eval(val['__class__']) will retrieve the class name
