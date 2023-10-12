@@ -4,6 +4,11 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 import re
 import sys
 
@@ -14,11 +19,11 @@ class HBNBCommand(cmd.Cmd):
     classes_dict = {
         'User': User,
         'BaseModel': BaseModel,
-        # 'State': State,
-        # 'City': City,
-        # 'Amenity': Amenity,
-        # 'Place': Place,
-        # 'Review': Review
+        'State': State,
+        'City': City,
+        'Amenity': Amenity,
+        'Place': Place,
+        'Review': Review
     }
     prompt = "(hbnb) "
 
