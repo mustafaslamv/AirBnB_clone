@@ -4,6 +4,7 @@
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -11,6 +12,15 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
+    classes_dict = {
+        'User': User,
+        'BaseModel': BaseModel,
+        # 'State': State,
+        # 'City': City,
+        # 'Amenity': Amenity,
+        # 'Place': Place,
+        # 'Review': Review
+    }
 
     def all(self):
         """returns the dictionary __objects"""
@@ -28,7 +38,7 @@ class FileStorage:
         for key, val in self.__objects.items():
             objects[key] = val.to_dict()
         with open(self.__file_path, "w", encoding="utf-8") as json_file:
-            json.dump(objects, json_file,indent=4)
+            json.dump(objects, json_file, indent=4)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
@@ -39,7 +49,8 @@ class FileStorage:
                 except json.JSONDecodeError:
                     objects = {}
             for key, val in objects.items():
-                # remember dict["__class__"] = __class__.__name__
-                # so eval(val['__class__']) will retrieve the class name
-                # <class name>.id   = Classname(**val) (recreates object)
-                self.__objects[key] = eval(val['__class__'])(**val)
+                class_name = val['__class__']
+                if class_name in self.classes_dict:
+                    cls = self.classes_dict[class_name]
+                    instance = cls(**val)
+                    self.__objects[key] = instance

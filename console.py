@@ -3,6 +3,7 @@
 import cmd
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 import re
 import sys
 
@@ -10,8 +11,15 @@ import sys
 class HBNBCommand(cmd.Cmd):
     """the entry point of the command interpreter"""
 
-    classes = ["BaseModel", "User", "State",
-               "City", "Amenity", "Place", "Review"]
+    classes_dict = {
+        'User': User,
+        'BaseModel': BaseModel,
+        # 'State': State,
+        # 'City': City,
+        # 'Amenity': Amenity,
+        # 'Place': Place,
+        # 'Review': Review
+    }
     prompt = "(hbnb) "
 
     def do_quit(self, args):
@@ -61,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(new_list) == 1:
             print("** instance id missing **")
             return
-        elif new_list[0] not in self.classes:
+        elif new_list[0] not in self.classes_dict:
             print("** class doesn't exist **")
             return
         class_name = new_list[0]
@@ -86,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
             for key, val in objects.items():
                 result.append(str(val))
             print(result)
-        elif new_list[0] not in self.classes:
+        elif new_list[0] not in self.classes_dict:
             print("** class doesn't exist **")
             return
         else:
@@ -110,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(new_list) == 1:
             print("** instance id missing **")
             return
-        elif new_list[0] not in self.classes:
+        elif new_list[0] not in self.classes_dict:
             print("** class doesn't exist **")
             return
         else:
@@ -135,7 +143,7 @@ class HBNBCommand(cmd.Cmd):
         if line_vector == []:
             print("** class name missing **")
             return
-        elif line_vector[0] not in self.classes:
+        elif line_vector[0] not in self.classes_dict:
             print("** class doesn't exist **")
             return
         elif vector_len < 2:

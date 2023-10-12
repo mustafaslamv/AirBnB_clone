@@ -33,7 +33,7 @@ class BaseModel:
 
     def __str__(self):
         """returns a string representation of the BaseModel instance"""
-        return f"[{__class__.__name__}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """updates updated_at with current datetime"""
@@ -43,7 +43,7 @@ class BaseModel:
     def to_dict(self):
         """returns a __dict__ representation of the instance"""
         dict = self.__dict__.copy()
-        dict["__class__"] = __class__.__name__
+        dict["__class__"] = self.__class__.__name__
         dict["created_at"] = self.created_at.isoformat()
         dict["updated_at"] = self.updated_at.isoformat()
         return dict
