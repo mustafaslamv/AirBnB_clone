@@ -161,5 +161,5 @@ class TestConstructor(unittest.TestCase):
             check for string representaion
         """
         n = self.place.__class__.__name__
-        expected_str = f"[{n}] ({self.place.id}) <{self.place.__dict__}>"
+        expected_str = f"[{n}] ({self.place.id}) {self.place.__dict__}"
         self.assertEqual(self.place.__str__(), expected_str)
