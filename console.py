@@ -172,6 +172,84 @@ class HBNBCommand(cmd.Cmd):
                         line_vector[2],  eval(line_vector[3]))
                 objects[key].save()
 
+    def do_count(self, line):
+        """Display count of instances specified"""
+        if line in HBNBCommand.classes_dict:
+            count = 0
+            for key, objs in storage.all().items():
+                if line in key:
+                    count += 1
+            print(count)
+        else:
+            print("** class doesn't exist **")
+
+    def default(self, line):
+        """Handle Cmd methods."""
+        line_vector = line.split('.')
+        class_argument = line_vector[0]
+
+        if line_vector == []:
+            print("*** Unknown syntax: {}".format(line))
+            return
+
+        try:
+            line_vector = line_vector[1].split('(')
+            command = line_vector[0]
+
+            if command == 'all':  # <class name>.all
+                HBNBCommand.do_all(self, class_argument)  # all BaseModel
+
+            elif command == 'count':  # <class name>.count()
+                HBNBCommand.do_count(self, class_argument)
+
+            elif command == 'show':  # <class name>.show(<id>)
+                line_vector = line_vector[1].split(')')
+                id_argument = line_vector[0].strip("'\"")
+                argument = class_argument + ' ' + id_argument
+                HBNBCommand.do_show(self, argument)  # show BaseModel 123
+
+            elif command == 'destroy':  # <class name>.destroy(<id>)
+                line_vector = line_vector[1].split(')')
+                id_argument = line_vector[0].strip("'\"")
+                argument = class_argument + ' ' + id_argument
+                HBNBCommand.do_destroy(self, argument)  # destroy BaseModel 122
+
+            elif command == 'update':
+                line_vector = line_vector[1].split(',')
+                id_argument = line_vector[0].strip("'\"")
+                name_argument = line_vector[1].strip(',')
+                if "{" not in line:
+                    value_argument = line_vector[2]
+                    name_argument = name_argument.strip(" '\"")
+                    value_argument = value_argument.strip(' )')
+                if "{" in line:
+
+                    b1 = line.index('{')
+                    b2 = line.index('}')
+                    value_dict = line[b1 + 1: b2].replace(" ", "")
+                    value_dict_list = value_dict.split(",")
+
+                    for s in value_dict_list:
+                        s = s.split(":")
+                        argument = class_argument + ' ' + id_argument + \
+                            ' ' + s[0][1:-1] + ' ' + s[1]
+                        HBNBCommand.do_update(self, argument)
+                        key = class_argument + '.' + id_argument
+                        if key not in storage.all().keys():
+                            return
+                else:
+                    # If eval fails, use the attribute and value pattern
+                    argument = class_argument + ' ' + id_argument + \
+                        ' ' + name_argument + ' ' + value_argument
+                    HBNBCommand.do_update(self, argument)
+
+            else:
+                print("*** Unknown syntax: {}".format(line))
+                return
+
+        except IndexError:
+            print("*** Unknown syntax: {}".format(line))
+
 
 if __name__ == '__main__':
     if not sys.stdin.isatty():

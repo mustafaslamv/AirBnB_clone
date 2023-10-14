@@ -1,16 +1,107 @@
 {
-    "BaseModel.d56ea80b-2e04-4be2-ac51-4fb4687bad60": {
-        "id": "d56ea80b-2e04-4be2-ac51-4fb4687bad60",
-        "created_at": "2023-10-14T12:17:58.288917",
-        "updated_at": "2023-10-14T12:17:58.289835",
-        "name": "My First Model",
-        "my_number": 90,
+    "User.user_id_123": {
+        "id": "user_id_123",
+        "email": "user@example.com",
+        "password": "password123",
+        "first_name": "John",
+        "last_name": "Doe",
+        "created_at": "2023-08-13T12:00:00",
+        "updated_at": "2023-08-13T13:30:00",
+        "__class__": "User"
+    },
+    "Amenity.amenity_id_456": {
+        "id": "amenity_id_456",
+        "name": "Wi-Fi",
+        "created_at": "2023-08-13T12:00:00",
+        "updated_at": "2023-08-13T13:30:00",
+        "__class__": "Amenity"
+    },
+    "State.state_id_789": {
+        "id": "state_id_789",
+        "name": "California",
+        "created_at": "2023-08-13T12:00:00",
+        "updated_at": "2023-08-13T13:30:00",
+        "__class__": "State"
+    },
+    "City.city_id_101": {
+        "id": "city_id_101",
+        "state_id": "state_id_789",
+        "name": "San Francisco",
+        "created_at": "2023-08-13T12:00:00",
+        "updated_at": "2023-08-13T13:30:00",
+        "__class__": "City"
+    },
+    "Place.place_id_111": {
+        "id": "place_id_111",
+        "city_id": "city_id_101",
+        "user_id": "user_id_123",
+        "name": "Cozy Cottage",
+        "description": "A lovely cottage in the heart of the city.",
+        "number_rooms": 2,
+        "number_bathrooms": 1,
+        "max_guest": 4,
+        "price_by_night": 100,
+        "latitude": 37.7749,
+        "longitude": -122.4194,
+        "created_at": "2023-08-13T12:00:00",
+        "updated_at": "2023-08-13T13:30:00",
+        "__class__": "Place"
+    },
+    "Review.review_id_222": {
+        "id": "review_id_222",
+        "place_id": "place_id_111",
+        "user_id": "user_id_123",
+        "text": "Had a great time staying here!",
+        "created_at": "2023-08-13T12:00:00",
+        "updated_at": "2023-08-13T13:30:00",
+        "__class__": "Review"
+    },
+    "BaseModel.base_id_333": {
+        "id": "base_id_333",
+        "created_at": "2023-08-13T12:00:00",
+        "updated_at": "2023-08-13T13:30:00",
         "__class__": "BaseModel"
     },
-    "BaseModel.a8cc83db-bc14-4c70-9379-718c78e8c16a": {
-        "id": "a8cc83db-bc14-4c70-9379-718c78e8c16a",
-        "created_at": "2023-10-14T12:19:38.156183",
-        "updated_at": "2023-10-14T12:19:38.158167",
+    "Amenity.02dcad0d-35f7-40df-a583-41875a59f172": {
+        "id": "02dcad0d-35f7-40df-a583-41875a59f172",
+        "created_at": "2023-10-14T12:23:12.622102",
+        "updated_at": "2023-10-14T12:23:12.622105",
+        "__class__": "Amenity"
+    },
+    "City.ac5c3839-3ff4-48b8-b716-6ea0f7a0a215": {
+        "id": "ac5c3839-3ff4-48b8-b716-6ea0f7a0a215",
+        "created_at": "2023-10-14T12:23:12.624939",
+        "updated_at": "2023-10-14T12:23:12.624941",
+        "__class__": "City"
+    },
+    "Place.50fbc12e-8d7f-4e52-9fae-a90928840495": {
+        "id": "50fbc12e-8d7f-4e52-9fae-a90928840495",
+        "created_at": "2023-10-14T12:23:12.626953",
+        "updated_at": "2023-10-14T12:23:12.626955",
+        "__class__": "Place"
+    },
+    "Review.4cc2cc7a-fb6d-481d-84c7-d065cbf32e51": {
+        "id": "4cc2cc7a-fb6d-481d-84c7-d065cbf32e51",
+        "created_at": "2023-10-14T12:23:12.629114",
+        "updated_at": "2023-10-14T12:23:12.629116",
+        "__class__": "Review"
+    },
+    "State.59e4202c-3ffa-4d97-af6f-ab9b95de25c7": {
+        "id": "59e4202c-3ffa-4d97-af6f-ab9b95de25c7",
+        "created_at": "2023-10-14T12:23:12.630750",
+        "updated_at": "2023-10-14T12:23:12.630752",
+        "__class__": "State"
+    },
+    "User.6ef353c3-918f-4320-a2e8-4170eadcd97e": {
+        "id": "6ef353c3-918f-4320-a2e8-4170eadcd97e",
+        "created_at": "2023-10-14T12:23:12.632265",
+        "updated_at": "2023-10-14T12:23:12.632267",
+        "__class__": "User"
+    },
+    "BaseModel.5ed0b25c-1d3d-4284-89d1-1d0e3e2d27c9": {
+        "id": "5ed0b25c-1d3d-4284-89d1-1d0e3e2d27c9",
+        "created_at": "2023-10-14T12:24:45.725655",
+        "updated_at": "2023-10-14T12:24:45.726423",
         "name": "My First Model",
         "my_number": 90,
         "__class__": "BaseModel"
