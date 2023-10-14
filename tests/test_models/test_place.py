@@ -40,7 +40,7 @@ class TestConstructor(unittest.TestCase):
         self.assertEqual(p.price_by_night, 0)
         self.assertEqual(p.latitude, 0.0)
         self.assertEqual(p.longitude, 0.0)
-        self.assertEqual(p.amenity_ids, "")
+        self.assertEqual(p.amenity_ids, [])
 
     def test_create_instance_without_kwargs(self):
         """
