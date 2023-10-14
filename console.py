@@ -9,7 +9,6 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
-import re
 import sys
 
 
@@ -252,10 +251,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    if not sys.stdin.isatty():
-        for line in sys.stdin:
-            line = line.strip()
-            if line:
-                HBNBCommand().onecmd(line)
-    else:
-        HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()
