@@ -1,14 +1,18 @@
 {
-    "User.bbdebc2f-e290-44c1-b9fd-b96e66302ddc": {
-        "id": "bbdebc2f-e290-44c1-b9fd-b96e66302ddc",
-        "created_at": "2023-10-12T21:12:34.990168",
-        "updated_at": "2023-10-12T21:12:34.990179",
-        "__class__": "User"
+    "BaseModel.d56ea80b-2e04-4be2-ac51-4fb4687bad60": {
+        "id": "d56ea80b-2e04-4be2-ac51-4fb4687bad60",
+        "created_at": "2023-10-14T12:17:58.288917",
+        "updated_at": "2023-10-14T12:17:58.289835",
+        "name": "My First Model",
+        "my_number": 90,
+        "__class__": "BaseModel"
     },
-    "Review.a1283f3c-a194-4d86-bf95-57561dce8f41": {
-        "id": "a1283f3c-a194-4d86-bf95-57561dce8f41",
-        "created_at": "2023-10-12T21:12:39.166756",
-        "updated_at": "2023-10-12T21:12:39.166766",
-        "__class__": "Review"
+    "BaseModel.a8cc83db-bc14-4c70-9379-718c78e8c16a": {
+        "id": "a8cc83db-bc14-4c70-9379-718c78e8c16a",
+        "created_at": "2023-10-14T12:19:38.156183",
+        "updated_at": "2023-10-14T12:19:38.158167",
+        "name": "My First Model",
+        "my_number": 90,
+        "__class__": "BaseModel"
     }
 }
